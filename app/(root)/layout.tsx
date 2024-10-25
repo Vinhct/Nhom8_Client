@@ -8,6 +8,7 @@ import {
   UserButton,
 } from "@clerk/nextjs";
 import { Navbar } from "@/components/navbar";
+import ToasterProvider from "@/lib/providers/ToasterProvider";
 
 export const metadata: Metadata = {
   title: "Borelle Store",
@@ -23,6 +24,7 @@ export default function RootLayout({
     <ClerkProvider>
       <html lang="en">
         <body>
+          <ToasterProvider />
           <Navbar />
           {children}
         </body>
