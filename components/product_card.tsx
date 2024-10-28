@@ -73,7 +73,7 @@ export const ProductCard = ({ product }: { product: ProductType }) => {
         <p className="text-small-medium text-grey-2">{product.category}</p>
       </div>
       <div className="flex justify-between items-center">
-        <p className="text-body-bold">${product.price}</p>
+        <p className="text-body-bold">{product.price} VNĐ</p>
         <button onClick={handleLike}>
           <Heart fill={`${isLiked ? "red" : "white"}`} />
         </button>
