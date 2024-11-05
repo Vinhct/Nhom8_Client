@@ -6,11 +6,11 @@ export const Collection = async () => {
   const collections = await getCollections();
   return (
     <div className="flex flex-col items-center gap-10 py-8 px-5">
-      <p className="text-heading1-bold">Collections</p>
+      <p className="text-heading1-bold">Bộ sưu tập</p>
 
       {!collections ||
         (collections.length === 0 ? (
-          <p>No collections found</p>
+          <p>Không có bộ sưu tập nào được tìm thấy</p>
         ) : (
           <div className="flex items-center justify-center gap-8">
             {collections.map((collection: CollectionType) => (
