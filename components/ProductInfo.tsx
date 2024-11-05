@@ -29,7 +29,7 @@ const ProductInfo = ({ productInfo }: { productInfo: ProductType }) => {
         <p className="text-base-bold">{productInfo.category}</p>
       </div>
 
-      <p className="text-heading3-bold">{productInfo.price} VNĐ</p>
+      <p className="text-heading3-bold">{productInfo.price} VND</p>
 
       <div className="flex flex-col gap-2">
         <p className="text-base-medium text-grey-2">Mô tả:</p>
