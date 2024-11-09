@@ -16,7 +16,7 @@ const SearchPage = async ({ params }: { params: { query: string } }) => {
             Không có kết quả nào được tìm thấy
           </p>
         ))}
-      <div className="flex flex-wrap justify-between gap-16">
+      <div className="flex flex-wrap gap-16">
         {searchedProducts.map((product: any) => (
           <ProductCard key={product._id} product={product} />
         ))}
