@@ -80,4 +80,6 @@ const Wishlist = () => {
   );
 };
 
+export const dynamic = "force-dynamic";
+
 export default Wishlist;
