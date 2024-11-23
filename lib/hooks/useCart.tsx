@@ -24,18 +24,27 @@ const useCart = create(
       cartItems: [],
       addItem: (data: CartItem) => {
         const { item, quantity, color, size } = data;
-        const currentItems = get().cartItems; 
-        const isExisting = currentItems.find(
-          (cartItem) => cartItem.item._id === item._id
+        const currentItems = get().cartItems;
+    
+        const isExistingIndex = currentItems.findIndex(
+            (cartItem) =>
+                cartItem.item._id === item._id &&
+                cartItem.color === color &&
+                cartItem.size === size
         );
-
-        if (isExisting) {
-          return toast("Item already in cart");
+    
+        if (isExistingIndex !== -1) {
+            const updatedItems = [...currentItems];
+            updatedItems[isExistingIndex].quantity += quantity;
+            set({ cartItems: updatedItems });
+        } else {
+            set({
+                cartItems: [...currentItems, { item, quantity, color, size }],
+            });
         }
-
-        set({ cartItems: [...currentItems, { item, quantity, color, size }] });
+    
         toast.success("Item added to cart", { icon: "🛒" });
-      },
+    },
       removeItem: (idToRemove: String) => {
         const newCartItems = get().cartItems.filter(
           (cartItem) => cartItem.item._id !== idToRemove
