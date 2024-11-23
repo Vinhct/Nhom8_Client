@@ -75,9 +75,13 @@ const Cart = () => {
                 </div>
 
                 <div className="flex gap-4 items-center">
-                  <MinusCircle
+                <MinusCircle
                     className="hover:text-red-1 cursor-pointer"
-                    onClick={() => cart.decreaseQuantity(cartItem.item._id)}
+                    onClick={() => {
+                      if (cartItem.quantity > 1) {
+                        cart.decreaseQuantity(cartItem.item._id);
+                      }
+                    }}
                   />
                   <p className="text-body-bold">{cartItem.quantity}</p>
                   <PlusCircle
